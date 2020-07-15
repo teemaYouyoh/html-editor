@@ -1,5 +1,5 @@
 <template>
-  <div class="div">
+  <div class="result_area">
     <div v-for="(item, index) in componentsArr" v-bind:key="index">
         <Img 
           v-if="item.type === 'Image'"
@@ -55,4 +55,17 @@ export default {
 </script>
 
 <style scoped>
+.result_area{
+  display: flex;
+flex-direction: column;
+padding: 30px;
+
+position: absolute;
+width: 568px;
+height: 709px;
+left: 542px;
+top: 69px;
+
+background: #FFFFFF;
+}
 </style>
