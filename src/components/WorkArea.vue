@@ -1,7 +1,38 @@
 <template>
   <div class="div">
-    <div v-for="(item, index) in componentsArr" v-bind:key="index">
-        <Img 
+    <div v-for="(item, index) in items" v-bind:key="index">
+        <WorkItem :item="item" @deleteItem="deleteItem($event)"  @changeItem="changeItem($event)"/>
+    </div>
+  </div>
+</template>
+
+
+<script>
+import WorkItem from './WorkItem.vue';
+
+export default {
+  name: 'WorkArea',
+  components: {
+    WorkItem,
+  },
+  props: ['items'],
+  methods: {
+    deleteItem(id) {
+      this.$emit('deleteItem', id);
+    },
+    changeItem(data) {
+      this.$emit('changeItem', data);
+    },
+  },
+  mounted() {
+  }
+}
+</script>
+
+<style scoped>
+</style>
+
+<!-- <Img 
           v-if="item.type === 'Image'"
           :item="item"
           @deleteItem='deleteItem($event)'
@@ -20,39 +51,4 @@
           v-if="item.type === 'Button'"
           :item="item"
           @deleteItem='deleteItem($event)'
-        />
-    </div>
-  </div>
-</template>
-
-
-<script>
-import Img from './items/Image.vue'
-import Headline from './items/Headline.vue'
-import Paragraph from './items/Paragraph.vue'
-import Btn from './items/Button.vue'
-
-
-export default {
-  name: 'HelloWorld',
-  components: {
-    Img,
-    Headline,
-    Paragraph,
-    Btn,
-  },
-  props: {
-    componentsArr: Array,
-  },
-  methods: {
-    deleteItem(id) {
-      this.$emit('deleteItem', id);
-    }
-  },
-  mounted() {
-  }
-}
-</script>
-
-<style scoped>
-</style>
+        /> -->

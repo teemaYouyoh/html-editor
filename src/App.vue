@@ -1,40 +1,51 @@
 <template>
   <div id="app">
-    <LeftSidebar v-on:add="addItem($event)"/>
-    <WorkArea :componentsArr="componentsArr" @deleteItem="deleteItem($event)"/>
+    <Toolbar v-on:add="addItem($event)"/>
+    <WorkArea :items="items" @deleteItem="deleteItem($event)" @changeItem="changeItem($event)"/>
+    <ResultArea :items="items"/>
   </div>
 </template>
 
 <script>
 import WorkArea from './components/WorkArea.vue'
-import LeftSidebar from './components/LeftSidebar.vue'
+import Toolbar from './components/Toolbar.vue'
+import ResultArea from './components/ResultArea.vue'
 
 export default {
   name: 'App',
   components: {
     WorkArea,
-    LeftSidebar,
+    Toolbar,
+    ResultArea,
   },
   data: function() {
     return {
-      componentsArr: [],
+      items: [],
     }
   },
   methods: {
     addItem: function(type) {
-      this.componentsArr.push({
+      this.items.push({
         type: type,
         id: Math.random(),
-        text: '',
+        text: type,
       });
     },
     deleteItem(id) {
-      this.componentsArr.forEach((element, index) => {
+      this.items.forEach((element, index) => {
         if (element.id === id) {
-          this.componentsArr.splice(index ,1);
+          this.items.splice(index ,1);
         }
       });
-    }
+    },
+    changeItem(data) {
+      this.items.forEach((element) => {
+        if (element.id === data.id) {
+          element.text = data.text;
+          console.log(element.text);
+        }
+      });
+    },
   }
 }
 </script>
