@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <h1 @click="isEdit = !isEdit">
+    <h1 class="headline" @click="isEdit = !isEdit">
       {{title}}
     </h1>
 
@@ -30,4 +30,23 @@ export default {
 </script>
 
 <style>
+.headline{
+  font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 150%;
+
+/* identical to box height, or 33px */
+letter-spacing: 0.02em;
+
+/* Dark */
+color: #252A32;
+
+/* Inside Auto Layout */
+flex: none;
+order: 1;
+align-self: center;
+margin: 0px 30px
+}
 </style>

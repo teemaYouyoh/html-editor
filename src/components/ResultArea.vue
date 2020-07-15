@@ -1,5 +1,5 @@
 <template>
-  <div class="result">
+  <div class="result_area">
     <div v-for="(item, index) in items" v-bind:key="index">
         <ResultItem :item="item" @deleteItem='deleteItem($event)'/>
     </div>
