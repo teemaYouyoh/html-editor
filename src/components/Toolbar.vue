@@ -12,8 +12,7 @@
             <span class="label_button">Paragraph</span>
         </button>
     </div>
-    <div class="block_row">
-     
+    <div class="block_row">     
       <button class="buttons_adding" @click="addItem('Button')"><img class="icon" src="./dashboard.png" alt=""><span class="label_button">Button</span></button>
       <button class="buttons_adding" @click="addItem('Image')"><img class="icon" src="./dashboard.png" alt=""><span class="label_button">Image</span></button>
    </div>

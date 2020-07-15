@@ -1,10 +1,8 @@
 <template>
   <div class="div">
-    <div class="result_area">
       <div v-for="(item, index) in items" v-bind:key="index">
           <WorkItem :item="item" @deleteItem="deleteItem($event)"  @changeItem="changeItem($event)"/>
       </div>
-    </div>
     <!-- <div class="result_area">
       <div v-for="(item, index) in componentsArr" v-bind:key="index">
           <Img 

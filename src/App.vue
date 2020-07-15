@@ -7,8 +7,8 @@
       
     <div class="mainArea">
       <div class="subHeader"></div>
-      <WorkArea :items="items" @deleteItem="deleteItem($event)" @changeItem="changeItem($event)"/>
       <ResultArea :items="items"/>
+      <WorkArea :items="items" @deleteItem="deleteItem($event)" @changeItem="changeItem($event)"/>
     </div>
   </div>
 </template>
